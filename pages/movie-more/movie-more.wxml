@@ -1,0 +1,30 @@
+<!--pages/movie-more/movie-more.wxml-->
+<import src='/pages/movie-list/movie-list' />
+<view class='container'>
+  <view class='movie-bar'>
+    <text class='inTheaters {{_intheaters?"active":""}}' bindtap='changeBar' data-type-bar='intheaters'>正在热映</text>
+    <text class='comingSoon {{_comingsoon?"active":""}}' bindtap='changeBar' data-type-bar='comingsoon'>即将上映</text>
+  </view>
+  <view class='session-movie'>
+    <view class='session-content'>
+      <block wx:if='{{_intheaters}}'>
+        <scroll-view scroll-y class='scroll-movie' bindscrolltolower="loadMore" style='height:600px'>
+          <block wx:for='{{intheaters.movies}}' wx:key="item">
+            <template is='movie-list' data='{{...item}}'>
+
+            </template>
+          </block>
+        </scroll-view>
+      </block>
+      <block wx:if='{{_comingsoon}}'>
+        <scroll-view scroll-y='true' class='scroll-movie' bindscrolltolower="loadMore" style='height:600px'>
+          <block wx:for='{{comingsoon.movies}}' wx:key="item">
+            <template is='movie-list' data='{{...item}}'>
+
+            </template>
+          </block>
+        </scroll-view>
+      </block>
+    </view>
+  </view>
+</view>

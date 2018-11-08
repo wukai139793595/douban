@@ -1,0 +1,18 @@
+<!--pages/movie-list/movie-list.wxml-->
+<!-- <text>pages/movie-list/movie-list.wxml</text> -->
+<import src='/pages/movie-rating/movie-rating'/>
+<template name='movie-list'>
+  <view class='movie-wrapper'>
+    <view class='movie-content'>
+      <image class='poster' src='{{images.medium}}'></image>
+      <view class='movie-summary'>
+        <text class='name'>{{title}}</text>
+        <text class='directors'>导演：{{allDirects}}</text>
+        <text class='casts'>主演:{{allCasts}}</text>
+        <text class='genres'>类型：{{allGenres}}></text>
+        <template is='rating' data='{{rating}}'></template>
+        <text class='wish-count' style='color:lightgreen'>{{collect_count}}人想看</text>
+      </view>
+    </view>
+  </view>
+</template>

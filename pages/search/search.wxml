@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='search'>
+    <icon type='search' size='18'></icon>
+    <input class='search-movie' bindinput='searchMovie'></input>
+    <text class='search-cancel' bindtap='backToHome'>取消</text>
+  </view>
+  <view class='movie-list'>
+    <block wx:for='{{result}}' wx:key='{{item}}}'>
+      <view class='list-wrap' bindtap='moveToMovie' data-id='{{item.id}}'>
+        <view class='img-box'>
+          <image src='{{item.imgUrl}}'></image>
+        </view>
+        <view class='detail-wrap'>
+          <text class='movie-name'>{{item.movie}}</text>
+          <text class='movie-detail'>{{item.detail}}</text>
+        </view>
+      </view>
+     </block>
+  </view>
+</view>
